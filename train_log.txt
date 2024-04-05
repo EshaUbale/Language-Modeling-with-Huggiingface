@@ -1,0 +1,109 @@
+
+(venv39) submit % python main.py --train --data "../hw1_train.csv" --save_model "./joint_trained_model.pt"
+Starting training with train data file= ../hw1_train.csv  and save_model_path= ./joint_trained_model.pt
+DatasetDict({
+    test: Dataset({
+        features: ['text'],
+        num_rows: 4358
+    })
+    train: Dataset({
+        features: ['text'],
+        num_rows: 36718
+    })
+    validation: Dataset({
+        features: ['text'],
+        num_rows: 3760
+    })
+})
+{'text': ['', ' = Valkyria Chronicles III = \n', '', ' Senjō no Valkyria 3 : Unrecorded Chronicles ( Japanese : 戦場のヴァルキュリア3 , lit . Valkyria of the Battlefield 3 ) , commonly referred to as Valkyria Chronicles III outside Japan , is a tactical role @-@ playing video game developed by Sega and Media.Vision for the PlayStation Portable . Released in January 2011 in Japan , it is the third game in the Valkyria series . Employing the same fusion of tactical and real @-@ time gameplay as its predecessors , the story runs parallel to the first game and follows the " Nameless " , a penal military unit serving the nation of Gallia during the Second Europan War who perform secret black operations and are pitted against the Imperial unit " Calamaty Raven " . \n', " The game began development in 2010 , carrying over a large portion of the work done on Valkyria Chronicles II . While it retained the standard features of the series , it also underwent multiple adjustments , such as making the game more forgiving for series newcomers . Character designer Raita Honjou and composer Hitoshi Sakimoto both returned from previous entries , along with Valkyria Chronicles II director Takeshi Ozawa . A large team of writers handled the script . The game 's opening theme was sung by May 'n . \n"]}
+If you want to use `BertLMHeadModel` as a standalone, add `is_decoder=True.`
+Model size: 109.5M parameters
+BertConfig {
+  "_name_or_path": "bert-base-uncased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.35.2",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+30522 30522
+512
+None None [PAD] [UNK]
+Map (num_proc=4):   0%|                                                            | 0/4358 [00:00<?, ? examples/s]Token indices sequence length is longer than the specified maximum sequence length for this model (525 > 512). Running this sequence through the model will result in indexing errors
+Map (num_proc=4): 100%|██████████████████████████████████████████████| 4358/4358 [00:00<00:00, 12188.61 examples/s]
+Map (num_proc=4):   0%|                                                           | 0/36718 [00:00<?, ? examples/s]Token indices sequence length is longer than the specified maximum sequence length for this model (552 > 512). Running this sequence through the model will result in indexing errors
+Map (num_proc=4):  14%|██████▏                                      | 5000/36718 [00:00<00:01, 17254.65 examples/s]Token indices sequence length is longer than the specified maximum sequence length for this model (647 > 512). Running this sequence through the model will result in indexing errors
+Map (num_proc=4):  25%|███████████                                  | 9000/36718 [00:00<00:01, 21376.90 examples/s]Token indices sequence length is longer than the specified maximum sequence length for this model (592 > 512). Running this sequence through the model will result in indexing errors
+Map (num_proc=4):  46%|████████████████████▎                       | 17000/36718 [00:00<00:00, 26871.24 examples/s]Token indices sequence length is longer than the specified maximum sequence length for this model (515 > 512). Running this sequence through the model will result in indexing errors
+Map (num_proc=4): 100%|████████████████████████████████████████████| 36718/36718 [00:01<00:00, 24159.14 examples/s]
+Map (num_proc=4): 100%|██████████████████████████████████████████████| 3760/3760 [00:00<00:00, 13224.63 examples/s]
+original model block size =  512
+Map (num_proc=4): 100%|███████████████████████████████████████████████| 4358/4358 [00:00<00:00, 7272.70 examples/s]
+Map (num_proc=4): 100%|█████████████████████████████████████████████| 36718/36718 [00:03<00:00, 9934.28 examples/s]
+Map (num_proc=4): 100%|███████████████████████████████████████████████| 3760/3760 [00:00<00:00, 7698.92 examples/s]
+{'loss': 1.6282, 'learning_rate': 1.8562598821331036e-05, 'epoch': 0.22}                                           
+{'loss': 0.072, 'learning_rate': 1.712519764266207e-05, 'epoch': 0.43}                                             
+{'loss': 0.0217, 'learning_rate': 1.56877964639931e-05, 'epoch': 0.65}                                             
+{'loss': 0.0116, 'learning_rate': 1.4250395285324134e-05, 'epoch': 0.86}                                           
+{'eval_loss': 0.0012160619953647256, 'eval_runtime': 16.8658, 'eval_samples_per_second': 113.899, 'eval_steps_per_second': 14.289, 'epoch': 1.0}                                                                                      
+{'loss': 0.0076, 'learning_rate': 1.2812994106655168e-05, 'epoch': 1.08}                                           
+{'loss': 0.005, 'learning_rate': 1.1375592927986202e-05, 'epoch': 1.29}                                            
+{'loss': 0.0038, 'learning_rate': 9.938191749317235e-06, 'epoch': 1.51}                                            
+{'loss': 0.0032, 'learning_rate': 8.50079057064827e-06, 'epoch': 1.72}                                             
+{'loss': 0.0027, 'learning_rate': 7.0633893919793015e-06, 'epoch': 1.94}                                           
+{'eval_loss': 0.00042602309258654714, 'eval_runtime': 16.6617, 'eval_samples_per_second': 115.294, 'eval_steps_per_second': 14.464, 'epoch': 2.0}                                                                                     
+{'loss': 0.0022, 'learning_rate': 5.625988213310335e-06, 'epoch': 2.16}                                            
+{'loss': 0.002, 'learning_rate': 4.1885870346413685e-06, 'epoch': 2.37}                                            
+{'loss': 0.0016, 'learning_rate': 2.751185855972402e-06, 'epoch': 2.59}                                            
+{'loss': 0.0014, 'learning_rate': 1.3137846773034354e-06, 'epoch': 2.8}                                            
+{'eval_loss': 0.00023659784346818924, 'eval_runtime': 16.9542, 'eval_samples_per_second': 113.305, 'eval_steps_per_second': 14.215, 'epoch': 3.0}                                                                                     
+{'train_runtime': 2331.9715, 'train_samples_per_second': 23.863, 'train_steps_per_second': 2.983, 'train_loss': 0.1268128219462339, 'epoch': 3.0}                                                                                     
+100%|██████████████████████████████████████████████████████████████████████████| 6957/6957 [38:51<00:00,  2.98it/s]
+100%|████████████████████████████████████████████████████████████████████████████| 241/241 [00:17<00:00, 13.45it/s]
+Perplexity: 1.00
+Train dataset length:  1802
+Valid dataset length:  451
+Num of classes: 19
+MPS is available
+Some weights of BertForSequenceClassification were not initialized from the model checkpoint at ./esha-bert and are newly initialized: ['classifier.weight', 'bert.pooler.dense.weight', 'classifier.bias', 'bert.pooler.dense.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+  0%|                                                                                     | 0/2260 [00:00<?, ?it/s]You're using a BertTokenizerFast tokenizer. Please note that with a fast tokenizer, using the `__call__` method is faster than using a method to encode the text followed by a call to the `pad` method to get a padded encoding.
+{'eval_loss': 0.1370067596435547, 'eval_f1': 0.9598552923328276, 'eval_runtime': 1.4067, 'eval_samples_per_second': 320.606, 'eval_steps_per_second': 40.52, 'epoch': 1.0}                                                            
+{'eval_loss': 0.05483751371502876, 'eval_f1': 0.99054732174116, 'eval_runtime': 0.9809, 'eval_samples_per_second': 459.765, 'eval_steps_per_second': 58.108, 'epoch': 2.0}                                                            
+{'loss': 0.1373, 'learning_rate': 3.893805309734514e-05, 'epoch': 2.21}                                            
+{'eval_loss': 0.04275216534733772, 'eval_f1': 0.99054732174116, 'eval_runtime': 0.9905, 'eval_samples_per_second': 455.339, 'eval_steps_per_second': 57.548, 'epoch': 3.0}                                                            
+{'eval_loss': 0.036617428064346313, 'eval_f1': 0.9912475201307036, 'eval_runtime': 1.0022, 'eval_samples_per_second': 450.022, 'eval_steps_per_second': 56.876, 'epoch': 4.0}                                                         
+{'loss': 0.0276, 'learning_rate': 2.7876106194690264e-05, 'epoch': 4.42}                                           
+{'eval_loss': 0.03759559243917465, 'eval_f1': 0.9908974209359318, 'eval_runtime': 0.9744, 'eval_samples_per_second': 462.838, 'eval_steps_per_second': 58.496, 'epoch': 5.0}                                                          
+{'eval_loss': 0.03410263732075691, 'eval_f1': 0.991480919593885, 'eval_runtime': 0.9833, 'eval_samples_per_second': 458.675, 'eval_steps_per_second': 57.97, 'epoch': 6.0}                                                            
+{'loss': 0.0147, 'learning_rate': 1.6814159292035402e-05, 'epoch': 6.64}                                           
+{'eval_loss': 0.031270574778318405, 'eval_f1': 0.9926479169097912, 'eval_runtime': 0.9787, 'eval_samples_per_second': 460.831, 'eval_steps_per_second': 58.243, 'epoch': 7.0}                                                         
+{'eval_loss': 0.03143796697258949, 'eval_f1': 0.9922978177150192, 'eval_runtime': 0.9802, 'eval_samples_per_second': 460.129, 'eval_steps_per_second': 58.154, 'epoch': 8.0}                                                          
+{'loss': 0.01, 'learning_rate': 5.752212389380531e-06, 'epoch': 8.85}                                              
+{'eval_loss': 0.031892336905002594, 'eval_f1': 0.992064418251838, 'eval_runtime': 0.97, 'eval_samples_per_second': 464.956, 'eval_steps_per_second': 58.764, 'epoch': 9.0}                                                            
+{'eval_loss': 0.031908828765153885, 'eval_f1': 0.9924145174466099, 'eval_runtime': 0.9916, 'eval_samples_per_second': 454.82, 'eval_steps_per_second': 57.483, 'epoch': 10.0}                                                         
+{'train_runtime': 332.9102, 'train_samples_per_second': 54.129, 'train_steps_per_second': 6.789, 'train_loss': 0.0429237630514972, 'epoch': 10.0}                                                                                     
+100%|██████████████████████████████████████████████████████████████████████████| 2260/2260 [05:32<00:00,  6.79it/s]
+train_results= TrainOutput(global_step=2260, training_loss=0.0429237630514972, metrics={'train_runtime': 332.9102, 'train_samples_per_second': 54.129, 'train_steps_per_second': 6.789, 'train_loss': 0.0429237630514972, 'epoch': 10.0})
+100%|██████████████████████████████████████████████████████████████████████████████| 57/57 [00:00<00:00, 57.63it/s]
+eval_results= {'eval_loss': 0.031908828765153885, 'eval_f1': 0.9924145174466099, 'eval_runtime': 1.0068, 'eval_samples_per_second': 447.948, 'eval_steps_per_second': 56.614, 'epoch': 10.0}
+Saving model to path  ./joint_trained_model.pt
+

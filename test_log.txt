@@ -1,0 +1,17 @@
+
+(venv39) submit % python main.py --test --data "../hw1_test.csv" --model_path "./joint_trained_model.pt" --output "./predictions.csv"
+test  ../hw1_test.csv ./joint_trained_model.pt ./predictions.csv
+Starting testing with test data file = ../hw1_test.csv  and model_path = ./joint_trained_model.pt
+Num of classes: 19
+['actor.gender' 'gr.amount' 'movie.country' 'movie.directed_by'
+ 'movie.estimated_budget' 'movie.genre' 'movie.gross_revenue'
+ 'movie.initial_release_date' 'movie.language' 'movie.locations'
+ 'movie.music' 'movie.produced_by' 'movie.production_companies'
+ 'movie.rating' 'movie.starring.actor' 'movie.starring.character'
+ 'movie.subjects' 'nan' 'person.date_of_birth']
+MPS is available
+Loading model from path  ./joint_trained_model.pt
+Loading data from path  ../hw1_test.csv
+Saved predictions to path  ./predictions.csv
+
+
